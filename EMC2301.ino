@@ -5,6 +5,7 @@
 */
 
 // the setup function runs once when you press reset or power the board
+#include <I2C.h>
 #include "EMC2301.h"
 void setup() {
 
