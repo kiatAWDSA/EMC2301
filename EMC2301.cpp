@@ -2,6 +2,8 @@
 Arduino Library for the Microchip EMC2301 RPM-based PWM fan controller.
 I2C communication is performed using a custom I2C library.
 
+Pg 12 of datasheet: The SMBus/I2C address is set at 0101_111(r/w)b (aka 47 or 0x2F)
+
 Copyright (C) 2019 Soon Kiat Lau
 
 This program is free software: you can redistribute it and/or modify

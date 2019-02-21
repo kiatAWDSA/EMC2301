@@ -45,14 +45,6 @@ typedef enum
 class EMC2301
 {
 public:
-  // Repeatability of measurements
-  typedef enum
-  {
-    REP_LOW = 0,
-    REP_MED = 1,
-    REP_HIG = 2
-  } Repeatability;
-
   EMC2301(I2C * i2cWire);
   ~EMC2301();
 
