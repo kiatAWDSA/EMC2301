@@ -71,30 +71,30 @@ public:
 
 private:
   // Pg 12 of datasheet : The SMBus / I2C address is set at 0101_111(r / w)b(aka 47 or 0x2F)
-  static const uint8_t I2C_ADDRESS = 0x2F;
+  const uint8_t I2C_ADDRESS = 0x2F;
 
   // Assume that we use internal clock for tachometer
-  static const uint16_t TACHO_FREQUENCY = 32768;
+  const uint16_t TACHO_FREQUENCY = 32768;
 
   // 2-byte to be written to tacho target register to turn off fan
-  static const uint16_t TACHO_OFF = 0x1FFF << 3; // 1111 1111 1111 1000
+  const uint16_t TACHO_OFF = 0x1FFF << 3; // 1111 1111 1111 1000
 
   /******************************
    *     List of registers      *
    ******************************/
-  static const uint8_t EMC2301_REG_PWMBASEFREQ          = 0x2D;
-  static const uint8_t EMC2301_REG_FANSETTING           = 0x30;
-  static const uint8_t EMC2301_REG_PWMDIVIDE            = 0x31;
-  static const uint8_t EMC2301_REG_FANCONFIG1           = 0x32;
-  static const uint8_t EMC2301_REG_FANCONFIG2           = 0x33;
-  static const uint8_t EMC2301_REG_FANSPINUP            = 0x36;
-  static const uint8_t EMC2301_REG_FANMAXSTEP           = 0x37;
-  static const uint8_t EMC2301_REG_FANMINDRIVE          = 0x38;
-  static const uint8_t EMC2301_REG_FANVALTACHCOUNT      = 0x39;
-  static const uint8_t EMC2301_REG_TACHTARGETLSB        = 0x3C;
-  static const uint8_t EMC2301_REG_TACHTARGETMSB        = 0x3D;
-  static const uint8_t EMC2301_REG_TACHREADMSB          = 0x3E;
-  static const uint8_t EMC2301_REG_TACHREADLSB          = 0x3F;
+  const uint8_t EMC2301_REG_PWMBASEFREQ          = 0x2D;
+  const uint8_t EMC2301_REG_FANSETTING           = 0x30;
+  const uint8_t EMC2301_REG_PWMDIVIDE            = 0x31;
+  const uint8_t EMC2301_REG_FANCONFIG1           = 0x32;
+  const uint8_t EMC2301_REG_FANCONFIG2           = 0x33;
+  const uint8_t EMC2301_REG_FANSPINUP            = 0x36;
+  const uint8_t EMC2301_REG_FANMAXSTEP           = 0x37;
+  const uint8_t EMC2301_REG_FANMINDRIVE          = 0x38;
+  const uint8_t EMC2301_REG_FANVALTACHCOUNT      = 0x39;
+  const uint8_t EMC2301_REG_TACHTARGETLSB        = 0x3C;
+  const uint8_t EMC2301_REG_TACHTARGETMSB        = 0x3D;
+  const uint8_t EMC2301_REG_TACHREADMSB          = 0x3E;
+  const uint8_t EMC2301_REG_TACHREADLSB          = 0x3F;
 
   /* Registers that can have values written directly into them (i.e. the entire register is meant for a single number):
       EMC2301_REG_FANSETTING
@@ -106,66 +106,66 @@ private:
   */
 
   // EMC2301_REG_PWMBASEFREQ
-  static const uint8_t EMC2301_REG_PWMBASEFREQ_26KHZ  = 0x00;
-  static const uint8_t EMC2301_REG_PWMBASEFREQ_19KHZ  = 0x01;
-  static const uint8_t EMC2301_REG_PWMBASEFREQ_4KHZ   = 0x02;
-  static const uint8_t EMC2301_REG_PWMBASEFREQ_2KHZ   = 0x03;
+  const uint8_t EMC2301_REG_PWMBASEFREQ_26KHZ  = 0x00;
+  const uint8_t EMC2301_REG_PWMBASEFREQ_19KHZ  = 0x01;
+  const uint8_t EMC2301_REG_PWMBASEFREQ_4KHZ   = 0x02;
+  const uint8_t EMC2301_REG_PWMBASEFREQ_2KHZ   = 0x03;
 
   // EMC2301_REG_FANCONFIG1
-  static const uint8_t EMC2301_REG_FANCONFIG1_RPMCONTROL    = 0x80;
-  static const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_CLEAR    = ~0x60;
-  static const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_500    = 0x00;
-  static const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_1000   = 0x20;
-  static const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_2000   = 0x40;
-  static const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_4000   = 0x60;
-  static const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_CLEAR  = ~0x18;
-  static const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_1    = 0x00;
-  static const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_2    = 0x08;
-  static const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_3    = 0x10;
-  static const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_4    = 0x18;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_CLEAR    = ~0x07;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_100    = 0x00;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_200    = 0x01;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_300    = 0x02;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_400    = 0x03;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_500    = 0x04;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_800    = 0x05;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_1200   = 0x06;
-  static const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_1600   = 0x07;
+  const uint8_t EMC2301_REG_FANCONFIG1_RPMCONTROL    = 0x80;
+  const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_CLEAR    = ~0x60;
+  const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_500    = 0x00;
+  const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_1000   = 0x20;
+  const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_2000   = 0x40;
+  const uint8_t EMC2301_REG_FANCONFIG1_MINRPM_4000   = 0x60;
+  const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_CLEAR  = ~0x18;
+  const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_1    = 0x00;
+  const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_2    = 0x08;
+  const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_3    = 0x10;
+  const uint8_t EMC2301_REG_FANCONFIG1_FANPOLES_4    = 0x18;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_CLEAR    = ~0x07;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_100    = 0x00;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_200    = 0x01;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_300    = 0x02;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_400    = 0x03;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_500    = 0x04;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_800    = 0x05;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_1200   = 0x06;
+  const uint8_t EMC2301_REG_FANCONFIG1_UPDATE_1600   = 0x07;
 
   // EMC2301_REG_FANCONFIG2
-  static const uint8_t EMC2301_REG_FANCONFIG2_RAMPCONTROL   = 0x40;
-  static const uint8_t EMC2301_REG_FANCONFIG2_GLITCHFILTER  = 0x20;
-  static const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_CLEAR    = ~0x18;
-  static const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_NONE   = 0x00;
-  static const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_BASIC  = 0x08;
-  static const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_STEP   = 0x10;
-  static const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_BOTH   = 0x18;
-  static const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_CLEAR  = ~0x06;
-  static const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_0    = 0x00;
-  static const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_50   = 0x02;
-  static const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_100  = 0x04;
-  static const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_200  = 0x06;
+  const uint8_t EMC2301_REG_FANCONFIG2_RAMPCONTROL   = 0x40;
+  const uint8_t EMC2301_REG_FANCONFIG2_GLITCHFILTER  = 0x20;
+  const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_CLEAR    = ~0x18;
+  const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_NONE   = 0x00;
+  const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_BASIC  = 0x08;
+  const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_STEP   = 0x10;
+  const uint8_t EMC2301_REG_FANCONFIG2_DEROPT_BOTH   = 0x18;
+  const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_CLEAR  = ~0x06;
+  const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_0    = 0x00;
+  const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_50   = 0x02;
+  const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_100  = 0x04;
+  const uint8_t EMC2301_REG_FANCONFIG2_ERRRANGE_200  = 0x06;
 
   // EMC2301_REG_FANSPINUP
-  static const uint8_t EMC2301_REG_FANSPINUP_NOKICK           = 0x20;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_CLEAR      = ~0x1C;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_30       = 0x00;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_35       = 0x04;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_40       = 0x08;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_45       = 0x0C;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_50       = 0x10;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_55       = 0x14;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_60       = 0x18;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_65       = 0x1C;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_CLEAR   = ~0x03;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_250   = 0x00;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_500   = 0x01;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_1000  = 0x02;
-  static const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_2000  = 0x03;
+  const uint8_t EMC2301_REG_FANSPINUP_NOKICK           = 0x20;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_CLEAR      = ~0x1C;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_30       = 0x00;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_35       = 0x04;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_40       = 0x08;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_45       = 0x0C;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_50       = 0x10;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_55       = 0x14;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_60       = 0x18;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINLVL_65       = 0x1C;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_CLEAR   = ~0x03;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_250   = 0x00;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_500   = 0x01;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_1000  = 0x02;
+  const uint8_t EMC2301_REG_FANSPINUP_SPINUPTIME_2000  = 0x03;
 
   // EMC2301_REG_FANMAXSTEP
-  static const uint8_t EMC2301_REG_FANMAXSTEP_MAX = 0b00111111;
+  const uint8_t EMC2301_REG_FANMAXSTEP_MAX = 0b00111111;
 
   I2C *i2cWire_;
   uint8_t tachMinRPMMultiplier_;
